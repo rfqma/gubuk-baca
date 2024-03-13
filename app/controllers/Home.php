@@ -6,6 +6,8 @@ class Home extends Controller
   {
     $data['judul'] = 'Home - Gubuk Baca';
 
+    $this->view('templates/header', $data);
     $this->view('home/index', $data);
+    $this->view('templates/footer', $data);
   }
 }

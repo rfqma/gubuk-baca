@@ -1,8 +1,11 @@
-<?php 
+<?php
 
-define("BASEURL","http://localhost/perpustakaan/public");
+// * ubah sesuai struktur folder xampp/htdocs masing-masing
 
-define("DB_HOST","localhost");
-define("DB_USER","root");
-define("DB_PASS","");
-define("DB_NAME","gubuk_baca");
+// define("BASEURL","http://localhost/perpustakaan/public");
+define("BASEURL", "http://localhost/gubuk-baca/public");
+
+define("DB_HOST", "localhost");
+define("DB_USER", "root");
+define("DB_PASS", "hibiki123#");
+define("DB_NAME", "gubuk_baca");

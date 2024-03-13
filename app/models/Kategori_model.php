@@ -14,7 +14,7 @@ class Kategori_model
   {
   }
 
-  public function getKategoriById($kategori_id)
+  public function getKategoriById($id_kategori)
   {
   }
 
@@ -22,11 +22,11 @@ class Kategori_model
   {
   }
 
-  public function updateKategori($kategori_id, $nama_kategori, $deskripsi)
+  public function updateKategori($id_kategori, $nama_kategori, $deskripsi)
   {
   }
 
-  public function hapusKategori($kategori_id)
+  public function hapusKategori($id_kategori)
   {
   }
 }

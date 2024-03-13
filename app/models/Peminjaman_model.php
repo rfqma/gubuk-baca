@@ -14,19 +14,19 @@ class Peminjaman_model
   {
   }
 
-  public function getPeminjamanById($peminjaman_id)
+  public function getPeminjamanById($id_peminjaman)
   {
   }
 
-  public function addPeminjaman($buku_id, $mahasiswa_id, $tanggal_pinjam, $tanggal_kembali)
+  public function addPeminjaman($id_buku, $id_mahasiswa, $tanggal_pinjam, $tanggal_kembali)
   {
   }
 
-  public function updatePeminjaman($peminjaman_id, $buku_id, $mahasiswa_id, $tanggal_pinjam, $tanggal_kembali)
+  public function updatePeminjaman($id_peminjaman, $id_buku, $id_mahasiswa, $tanggal_pinjam, $tanggal_kembali)
   {
   }
 
-  public function hapusPeminjaman($peminjaman_id)
+  public function hapusPeminjaman($id_peminjaman)
   {
   }
 }

@@ -14,19 +14,19 @@ class Penulis_model
   {
   }
 
-  public function getPenulisById($penulis_id)
+  public function getPenulisById($id_penulis)
   {
   }
 
-  public function addPenulis($nama_penulis, $tanggal_lahir, $kewarganegaraan)
+  public function addPenulis($nama_penulis, $kewarganegaraan)
   {
   }
 
-  public function updatePenulis($penulis_id, $nama_penulis, $tanggal_lahir, $kewarganegaraan)
+  public function updatePenulis($id_penulis, $nama_penulis, $kewarganegaraan)
   {
   }
 
-  public function hapusPenulis($penulis_id)
+  public function hapusPenulis($id_penulis)
   {
   }
 }

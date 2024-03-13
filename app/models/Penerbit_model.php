@@ -14,19 +14,19 @@ class Penerbit_model
   {
   }
 
-  public function getPenerbitById($penerbit_id)
+  public function getPenerbitById($id_penerbit)
   {
   }
 
-  public function addPenerbit($nama_penerbit, $negara_asal, $tahun_berdiri)
+  public function addPenerbit($nama_penerbit, $negara_asal)
   {
   }
 
-  public function updatePenerbit($penerbit_id, $nama_penerbit, $negara_asal, $tahun_berdiri)
+  public function updatePenerbit($id_penerbit, $nama_penerbit, $negara_asal)
   {
   }
 
-  public function hapusPenerbit($penerbit_id)
+  public function hapusPenerbit($id_penerbit)
   {
   }
 }

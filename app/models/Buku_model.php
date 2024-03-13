@@ -14,19 +14,19 @@ class Buku_model
   {
   }
 
-  public function getBukuById($buku_id)
+  public function getBukuById($id_buku)
   {
   }
 
-  public function addBuku($judul, $penulis, $penerbit, $tahun_terbit, $isbn, $jumlah_tersedia)
+  public function addBuku($judul_buku, $id_kategori, $id_penulis, $id_penerbit, $tahun_terbit, $jumlah_tersedia)
   {
   }
 
-  public function updateBuku($buku_id, $judul, $penulis, $penerbit, $tahun_terbit, $isbn, $jumlah_tersedia)
+  public function updateBuku($id_buku, $judul_buku, $id_kategori, $id_penulis, $id_penerbit, $tahun_terbit, $jumlah_tersedia)
   {
   }
 
-  public function hapusBuku($buku_id)
+  public function hapusBuku($id_buku)
   {
   }
 }

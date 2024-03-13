@@ -23,6 +23,13 @@ class Penulis_model
     return $this->db->resultSingle();
   }
 
+  public function getPenulisNameById($id_penulis)
+  {
+    $this->db->query('SELECT nama_penulis FROM ' . $this->table . ' WHERE id_penulis=:id_penulis');
+    $this->db->bind('id_penulis', $id_penulis);
+    return $this->db->resultSingle()['nama_penulis'];
+  }
+
   public function addPenulis($nama_penulis, $kewarganegaraan)
   {
     $query = "INSERT INTO " . $this->table . " VALUES ('', :nama_penulis, :kewarganegaraan)";

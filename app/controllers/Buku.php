@@ -6,8 +6,13 @@ class Buku extends Controller
   {
     $data['judul'] = 'Daftar Buku - Gubuk Baca';
     $data['buku'] = $this->model('Buku_model')->getAllBuku();
+    $data['kategori'] = $this->model('Kategori_model');
+    $data['penulis'] = $this->model('Penulis_model');
+    $data['penerbit'] = $this->model('Penerbit_model');
 
+    $this->view('templates/header', $data);
     $this->view('buku/index', $data);
+    $this->view('templates/footer', $data);
   }
 
   public function detail($id_buku)

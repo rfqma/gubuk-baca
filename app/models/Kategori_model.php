@@ -23,6 +23,13 @@ class Kategori_model
     return $this->db->resultSingle();
   }
 
+  public function getKategoriNameById($id_kategori)
+  {
+    $this->db->query('SELECT nama_kategori FROM ' . $this->table . ' WHERE id_kategori=:id_kategori');
+    $this->db->bind('id_kategori', $id_kategori);
+    return $this->db->resultSingle()['nama_kategori'];
+  }
+
   public function addKategori($nama_kategori, $deskripsi)
   {
     $query = "INSERT INTO " . $this->table . " VALUES ('', :nama_kategori, :deskripsi)";

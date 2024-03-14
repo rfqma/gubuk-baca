@@ -43,11 +43,17 @@ class Buku extends Controller
     }
   }
 
-  public function getUpdate()
+  public function edit($id_buku)
   {
-    $id_buku = $_POST['id_buku'];
-    $data = $this->model('Buku_model')->getBukuById($id_buku);
-    echo json_encode($data);
+    $data['judul'] = 'Edit Buku - Gubuk Baca';
+    $data['buku'] = $this->model('Buku_model')->getBukuById($id_buku);
+    $data['kategori'] = $this->model('Kategori_model');
+    $data['penulis'] = $this->model('Penulis_model');
+    $data['penerbit'] = $this->model('Penerbit_model');
+
+    $this->view('templates/header', $data);
+    $this->view('buku/edit', $data);
+    $this->view('templates/footer', $data);
   }
 
   public function update()
@@ -73,15 +79,36 @@ class Buku extends Controller
 
   public function delete()
   {
-    $id_buku = $_POST['id_buku'];
+    // mengambil url
+    $currentUrl = $_SERVER['REQUEST_URI'];
 
-    if ($this->model('Buku_model')->hapusBuku($id_buku) > 0) {
-      echo "<script type='text/javascript'> alert('Data berhasil dihapus!'); </script>";
-      header('Location: ' . BASEURL . '/buku');
-      exit;
+    // parse url untuk ekstraksi parameter id_buku
+    $urlParts = parse_url($currentUrl);
+    parse_str($urlParts['query'], $queryParams);
+
+    // cek apakah parameter id_buku ada di dalam url
+    if (isset($queryParams['id_buku']) && !empty($queryParams['id_buku'])) {
+      // mengambil nilai parameter id_buku dari url
+      $id_buku = $queryParams['id_buku'];
+
+      // cek apakah id_buku adalah integer
+      if (ctype_digit($id_buku)) {
+        // panggil method model untuk hapus data
+        if ($this->model('Buku_model')->hapusBuku($id_buku) > 0) {
+          echo "<script type='text/javascript'> alert('Data berhasil dihapus!'); </script>";
+          header('Location: ' . BASEURL . '/buku');
+          exit;
+        } else {
+          echo "<script type='text/javascript'> alert('Data gagal dihapus!'); </script>";
+          header('Location: ' . BASEURL . '/buku');
+          exit;
+        }
+      } else {
+        echo "id_buku bukan integer!";
+        exit;
+      }
     } else {
-      echo "<script type='text/javascript'> alert('Data gagal dihapus!'); </script>";
-      header('Location: ' . BASEURL . '/buku');
+      echo "id_buku tidak ditemukan!";
       exit;
     }
   }

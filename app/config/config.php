@@ -6,5 +6,5 @@ define("BASEURL", "http://localhost/gubuk-baca/public");
 // ** ubah sesuai konfigurasi database masing-masing
 define("DB_HOST", "localhost");
 define("DB_USER", "root");
-define("DB_PASS", "hibiki123#");
+define("DB_PASS", "");
 define("DB_NAME", "gubuk_baca");

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2024 at 07:31 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.28
+-- Generation Time: Mar 14, 2024 at 06:23 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,16 +35,15 @@ CREATE TABLE `buku` (
   `id_penerbit` int(11) DEFAULT NULL,
   `tahun_terbit` int(11) NOT NULL,
   `jumlah_tersedia` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `buku`
 --
 
 INSERT INTO `buku` (`id_buku`, `judul_buku`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah_tersedia`) VALUES
-(2, 'test judul buku', 1, 1, 1, 2020, 12),
-(16, 'test', 1, 1, 1, 2020, 12),
-(17, 'testa', 1, 1, 1, 2000, 2);
+(19, 'judul buku 3 edit 22', 2, 1, 1, 2023, 321),
+(20, 'judul buku 4', 2, 1, 1, 2024, 11);
 
 -- --------------------------------------------------------
 
@@ -56,14 +55,15 @@ CREATE TABLE `kategori` (
   `id_kategori` int(11) NOT NULL,
   `nama_kategori` varchar(50) NOT NULL,
   `deskripsi` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `kategori`
 --
 
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `deskripsi`) VALUES
-(1, 'test nama kategori', 'test deskripsi kategori');
+(1, 'test nama kategori', 'test deskripsi kategori'),
+(2, 'kategori 2', 'deskripsi kategori 2');
 
 -- --------------------------------------------------------
 
@@ -77,7 +77,7 @@ CREATE TABLE `mahasiswa` (
   `email` varchar(50) NOT NULL,
   `alamat` varchar(100) NOT NULL,
   `nomor_telepon` varchar(24) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `mahasiswa`
@@ -98,7 +98,7 @@ CREATE TABLE `peminjaman` (
   `id_buku` int(11) NOT NULL,
   `tanggal_pinjam` date NOT NULL,
   `tanggal_kembali` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -110,7 +110,7 @@ CREATE TABLE `penerbit` (
   `id_penerbit` int(11) NOT NULL,
   `nama_penerbit` varchar(50) NOT NULL,
   `negara_asal` varchar(24) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `penerbit`
@@ -129,7 +129,7 @@ CREATE TABLE `penulis` (
   `id_penulis` int(11) NOT NULL,
   `nama_penulis` varchar(50) NOT NULL,
   `kewarganegaraan` varchar(24) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `penulis`
@@ -191,13 +191,13 @@ ALTER TABLE `penulis`
 -- AUTO_INCREMENT for table `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `mahasiswa`

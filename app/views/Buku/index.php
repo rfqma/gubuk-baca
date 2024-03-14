@@ -8,7 +8,7 @@
     <span class="icon text-white-50">
       <i class="fas fa-plus"></i>
     </span>
-    <span class="text">Tambah Data Buku</span>
+    <span class="text">Tambah Buku</span>
   </button>
 
 
@@ -43,13 +43,13 @@
                 <td><?= $buku['tahun_terbit']; ?></td>
                 <td><?= $buku['jumlah_tersedia']; ?></td>
                 <td>
-                  <a href="edit_buku.php?id=<?= $buku['id_buku']; ?>" class="btn btn-primary btn-icon-split">
+                  <a href="<?= BASEURL; ?>/buku/edit/<?= $buku['id_buku']; ?>" class="btn btn-primary btn-icon-split">
                     <span class="icon text-white-50">
                       <i class="fas fa-edit"></i>
                     </span>
                     <span class="text">Edit</span>
                   </a>
-                  <a href="hapus_buku.php?id=<?= $buku['id_buku']; ?>" class="btn btn-danger btn-icon-split">
+                  <a href="<?= BASEURL; ?>/buku/delete?id_buku=<?= $buku['id_buku']; ?>" class="btn btn-danger btn-icon-split">
                     <span class="icon text-white-50">
                       <i class="fas fa-trash"></i>
                     </span>
@@ -63,68 +63,69 @@
       </div>
     </div>
   </div>
-</div>
-<div class="modal fade" id="addbookModal" tabindex="-1" role="dialog" aria-labelledby="judulModal" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="judulModal">Tambah Data Buku</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="
-          <?= BASEURL; ?>/buku/add" method="POST">
-          <div class="form-group">
-            <label for="judul">Judul Buku</label>
-            <input type="text" class="form-control" id="judul_buku" name="judul_buku">
-          </div>
-          <div class="form-group">
-            <label for="kategori">Kategori Buku</label>
-            <select class="form-control" id="" name="id_kategori">
-              <?php foreach ($data['kategori']->getAllKategori() as $kategori): ?>
-                <option value="<?php echo $kategori['id_kategori']; ?>"><?php echo $kategori['nama_kategori']; ?></option>
-              <?php endforeach; ?>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="penulis">Nama Penulis</label>
-            <select class="form-control" id="" name="id_penulis">
-              <?php foreach ($data['penulis']->getAllPenulis() as $penulis): ?>
-                <option value="<?php echo $penulis['id_penulis']; ?>"><?php echo $penulis['nama_penulis']; ?></option>
-              <?php endforeach; ?>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="penerbit">Nama Penerbit</label>
-            <select class="form-control" id="" name="id_penerbit">
-              <?php foreach ($data['penerbit']->getAllPenerbit() as $penerbit): ?>
-                <option value="<?php echo $penerbit['id_penerbit']; ?>"><?php echo $penerbit['nama_penerbit']; ?></option>
-              <?php endforeach; ?>
-            </select>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="tahun_terbit">Tahun Terbit</label>
-                <input type="text" class="form-control" id="tahun_terbit" name="tahun_terbit">
+
+  <!-- add book modal -->
+  <div class="modal fade" id="addbookModal" tabindex="-1" role="dialog" aria-labelledby="judulModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="judulModal">Tambah Data Buku</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="<?= BASEURL; ?>/buku/add" method="POST">
+            <div class="form-group">
+              <label for="judul">Judul Buku</label>
+              <input type="text" class="form-control" id="judul_buku" name="judul_buku">
+            </div>
+            <div class="form-group">
+              <label for="kategori">Kategori Buku</label>
+              <select class="form-control" id="" name="id_kategori">
+                <?php foreach ($data['kategori']->getAllKategori() as $kategori) : ?>
+                  <option value="<?php echo $kategori['id_kategori']; ?>"><?php echo $kategori['nama_kategori']; ?></option>
+                <?php endforeach; ?>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="penulis">Nama Penulis</label>
+              <select class="form-control" id="" name="id_penulis">
+                <?php foreach ($data['penulis']->getAllPenulis() as $penulis) : ?>
+                  <option value="<?php echo $penulis['id_penulis']; ?>"><?php echo $penulis['nama_penulis']; ?></option>
+                <?php endforeach; ?>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="penerbit">Nama Penerbit</label>
+              <select class="form-control" id="" name="id_penerbit">
+                <?php foreach ($data['penerbit']->getAllPenerbit() as $penerbit) : ?>
+                  <option value="<?php echo $penerbit['id_penerbit']; ?>"><?php echo $penerbit['nama_penerbit']; ?></option>
+                <?php endforeach; ?>
+              </select>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="tahun_terbit">Tahun Terbit</label>
+                  <input type="text" class="form-control" id="tahun_terbit" name="tahun_terbit">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="stok">Stok Buku</label>
+                  <input type="text" class="form-control" id="jumlah_tersedia" name="jumlah_tersedia">
+                </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="stok">Stok Buku</label>
-                <input type="text" class="form-control" id="jumlah_tersedia" name="jumlah_tersedia">
-              </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Tambah Buku</button>
             </div>
-          </div>
+          </form>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Tambah Buku</button>
-      </div>
-      </form>
     </div>
   </div>
-</div>
-<!-- /.container-fluid -->
+
+  <!-- /.container-fluid -->

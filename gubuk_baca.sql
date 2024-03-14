@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2024 at 03:49 PM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 8.0.9
+-- Generation Time: Mar 14, 2024 at 07:31 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,7 +42,9 @@ CREATE TABLE `buku` (
 --
 
 INSERT INTO `buku` (`id_buku`, `judul_buku`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah_tersedia`) VALUES
-(2, 'test judul buku', 1, 1, 1, 2020, 12);
+(2, 'test judul buku', 1, 1, 1, 2020, 12),
+(16, 'test', 1, 1, 1, 2020, 12),
+(17, 'testa', 1, 1, 1, 2000, 2);
 
 -- --------------------------------------------------------
 
@@ -145,9 +147,9 @@ INSERT INTO `penulis` (`id_penulis`, `nama_penulis`, `kewarganegaraan`) VALUES
 --
 ALTER TABLE `buku`
   ADD PRIMARY KEY (`id_buku`),
-  ADD UNIQUE KEY `id_penerbit` (`id_penerbit`),
-  ADD UNIQUE KEY `id_penulis` (`id_penulis`),
-  ADD UNIQUE KEY `id_kategori` (`id_kategori`);
+  ADD KEY `id_kategori_2` (`id_kategori`),
+  ADD KEY `id_penulis_2` (`id_penulis`),
+  ADD KEY `id_penerbit_2` (`id_penerbit`);
 
 --
 -- Indexes for table `kategori`
@@ -166,8 +168,8 @@ ALTER TABLE `mahasiswa`
 --
 ALTER TABLE `peminjaman`
   ADD PRIMARY KEY (`id_peminjaman`),
-  ADD UNIQUE KEY `id_mahasiswa` (`id_mahasiswa`),
-  ADD UNIQUE KEY `id_buku` (`id_buku`);
+  ADD KEY `id_mahasiswa` (`id_mahasiswa`),
+  ADD KEY `id_buku` (`id_buku`);
 
 --
 -- Indexes for table `penerbit`
@@ -189,7 +191,7 @@ ALTER TABLE `penulis`
 -- AUTO_INCREMENT for table `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `kategori`
@@ -230,8 +232,8 @@ ALTER TABLE `penulis`
 --
 ALTER TABLE `buku`
   ADD CONSTRAINT `buku_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id_kategori`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT `buku_ibfk_2` FOREIGN KEY (`id_penerbit`) REFERENCES `penerbit` (`id_penerbit`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT `buku_ibfk_3` FOREIGN KEY (`id_penulis`) REFERENCES `penulis` (`id_penulis`) ON DELETE SET NULL ON UPDATE CASCADE;
+  ADD CONSTRAINT `buku_ibfk_2` FOREIGN KEY (`id_penulis`) REFERENCES `penulis` (`id_penulis`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `buku_ibfk_3` FOREIGN KEY (`id_penerbit`) REFERENCES `penerbit` (`id_penerbit`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Constraints for table `peminjaman`

@@ -3,6 +3,14 @@
 
   <!-- Page Heading -->
   <h1 class="h3 mb-2 text-gray-800">Tabel Daftar Buku</h1>
+  <!-- Button -->
+  <a href="#" class="btn btn-primary btn-icon-split m-3">
+    <span class="icon text-white-50">
+      <i class="fas fa-plus"></i>
+    </span>
+    <span class="text">Tambah Data Buku</span>
+  </a>
+
 
   <!-- DataTales Example -->
   <div class="card shadow mb-4">
@@ -21,6 +29,7 @@
               <th>Penerbit</th>
               <th>Tahun Terbit</th>
               <th>Stok</th>
+              <th>Action</th>
             </tr>
           </thead>
           <!-- <tfoot>
@@ -32,6 +41,7 @@
               <th>Penerbit</th>
               <th>Tahun Terbit</th>
               <th>Stok</th>
+              <th>Action</th>
             </tr>
           </tfoot> -->
           <tbody>
@@ -44,6 +54,20 @@
                 <td><?= $data['penerbit']->getPenerbitNameById($buku['id_penerbit']) ?></td>
                 <td><?= $buku['tahun_terbit']; ?></td>
                 <td><?= $buku['jumlah_tersedia']; ?></td>
+                <td>
+                  <a href="edit_buku.php?id=<?= $buku['id_buku']; ?>" class="btn btn-primary btn-icon-split">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-edit"></i>
+                    </span>
+                    <span class="text">Edit</span>
+                  </a>
+                  <a href="hapus_buku.php?id=<?= $buku['id_buku']; ?>" class="btn btn-danger btn-icon-split">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-trash"></i>
+                    </span>
+                    <span class="text">Hapus</span>
+                  </a>
+                </td>
               </tr>
             <?php endforeach; ?>
           </tbody>

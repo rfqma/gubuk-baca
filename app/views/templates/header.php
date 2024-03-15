@@ -60,6 +60,18 @@
           <i class="fas fa-fw fa-table"></i>
           <span>Daftar Buku</span></a>
       </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="<?= BASEURL; ?>/penulis">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Daftar Penulis</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="<?= BASEURL; ?>/mahasiswa">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <span>Daftar Mahasiswa</span></a>
+      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -115,4 +127,5 @@
           </ul>
 
         </nav>
+</body>
         <!-- End of Topbar -->

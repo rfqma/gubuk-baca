@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2024 at 07:31 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.28
+-- Generation Time: Mar 15, 2024 at 02:20 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,9 +42,7 @@ CREATE TABLE `buku` (
 --
 
 INSERT INTO `buku` (`id_buku`, `judul_buku`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah_tersedia`) VALUES
-(19, 'judul buku 3 edit 22', 2, 1, 1, 2023, 321),
-(20, 'judul buku 4', 2, 1, 1, 2024, 11);
-
+(20, 'judul buku 4', 2, 2, 1, 2024, 11);
 
 -- --------------------------------------------------------
 
@@ -63,7 +61,7 @@ CREATE TABLE `kategori` (
 --
 
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `deskripsi`) VALUES
-(1, 'test nama kategori', 'test deskripsi kategori'),
+(1, 'test nama kategori edit', 'test deskripsi kategori edit'),
 (2, 'kategori 2', 'deskripsi kategori 2');
 
 -- --------------------------------------------------------
@@ -85,7 +83,7 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`id_mahasiswa`, `nama_mahasiswa`, `email`, `alamat`, `nomor_telepon`) VALUES
-(1, 'test nama mahasiswa', 'testemailmahasiswa@email.com', 'test alamat mahasiswa', '087777777');
+(1, 'test nama mahasiswa ubah 2', 'testemailmahasiswa@email.com', 'test alamat mahasiswa', '087777777');
 
 -- --------------------------------------------------------
 
@@ -137,7 +135,7 @@ CREATE TABLE `penulis` (
 --
 
 INSERT INTO `penulis` (`id_penulis`, `nama_penulis`, `kewarganegaraan`) VALUES
-(1, 'test nama penulis', 'indo');
+(2, 'penulis 2', 'indonnn');
 
 --
 -- Indexes for dumped tables
@@ -198,13 +196,13 @@ ALTER TABLE `buku`
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `peminjaman`
@@ -222,7 +220,7 @@ ALTER TABLE `penerbit`
 -- AUTO_INCREMENT for table `penulis`
 --
 ALTER TABLE `penulis`
-  MODIFY `id_penulis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_penulis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

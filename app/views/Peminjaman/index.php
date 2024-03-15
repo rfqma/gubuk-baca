@@ -1,10 +1,15 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formModal">Tambah Daftar Peminjaman</button>
-
   <!-- Page Heading -->
   <h1 class="h3 mb-2 text-gray-800 mt-4">Tabel Peminjaman Buku</h1>
+
+  <button type="button" class="btn btn-primary btn-icon-split m-3" data-toggle="modal" data-target="#formModal">
+    <span class="icon text-white-50">
+      <i class="fas fa-plus"></i>
+    </span>
+    <span class="text">Tambah Daftar Pinjam</span>
+  </button>
 
   <!-- DataTales Example -->
   <div class="card shadow mb-4">
@@ -28,22 +33,18 @@
             <?php foreach ($data['peminjaman'] as $peminjaman): ?>
               <tr>
                 <td><?= $peminjaman['id_peminjaman']; ?></td>
-                <?php
-                $buku = $data['buku']->getBukuById($peminjaman['id_buku']);
-                $mahasiswa = $data['mahasiswa']->getMahasiswaById($peminjaman['id_mahasiswa']);
-                ?>
-                <td><?= $buku['judul_buku']; ?></td>
-                <td><?= $mahasiswa['nama_mahasiswa']; ?></td>
+                <td><?= $data['buku']->getBukuNameById($peminjaman['id_buku']) ?></td>
+                <td><?= $data['mahasiswa']->getMahasiswaNameById($peminjaman['id_mahasiswa']) ?></td>                
                 <td><?= $peminjaman['tanggal_pinjam']; ?></td>
                 <td><?= $peminjaman['tanggal_kembali']; ?></td>
                 <td>
-                  <a href="edit_peminjaman.php?id=<?= $buku['id_buku']; ?>" class="btn btn-primary btn-icon-split">
+                  <a href="<?= BASEURL; ?>/peminjaman/edit/<?= $peminjaman['id_peminjaman']; ?>" class="btn btn-primary btn-icon-split">
                     <span class="icon text-white-50">
                       <i class="fas fa-edit"></i>
                     </span>
                     <span class="text">Edit</span>
                   </a>
-                  <a href="hapus_peminjaman.php?id=<?= $buku['id_buku']; ?>" class="btn btn-danger btn-icon-split">
+                  <a href="<?= BASEURL; ?>/peminjaman/delete?id_peminjaman=<?= $peminjaman['id_peminjaman']; ?>" class="btn btn-danger btn-icon-split">
                     <span class="icon text-white-50">
                       <i class="fas fa-trash"></i>
                     </span>
@@ -71,15 +72,23 @@
         </button>
       </div>
       <div class="modal-body">
-      <form action="<?= BASEURL; ?>/peminjaman/tambah" method="post">
+        <form action="<?= BASEURL; ?>/peminjaman/add" method="post">
+        <div class="form-group">
+              <label for="id_buku"> Buku</label>
+              <select class="form-control" id="" name="id_buku">
+                <?php foreach ($data['buku']->getAllBuku() as $buku) : ?>
+                  <option value="<?php echo $buku['id_buku']; ?>"><?php echo $buku['judul_buku']; ?></option>
+                <?php endforeach; ?>
+                </select>
+            </div>
           <div class="form-group">
-            <label for="judul_buku">Judul Buku</label>
-            <input type="text" class="form-control" id="judul_buku" name="judul_buku">
-          </div>
-          <div class="form-group">
-            <label for="id_mahasiswa">Mahasiswa</label>
-            <input type="text" class="form-control" id="id_mahasiswa" name="id_mahasiswa">
-          </div>
+              <label for="id_mahasiswa"> Mahasiswa</label>
+              <select class="form-control" id="" name="id_mahasiswa">
+                <?php foreach ($data['mahasiswa']->getAllMahasiswa() as $mhs) : ?>
+                  <option value="<?php echo $mhs['id_mahasiswa']; ?>"><?php echo $mhs['nama_mahasiswa']; ?></option>
+                <?php endforeach; ?>
+                </select>
+            </div>
           <div class="form-group">
             <label for="tanggal_pinjam">Tanggal Pinjam</label>
             <input type="date" class="form-control" id="tanggal_pinjam" name="tanggal_pinjam">
@@ -88,13 +97,13 @@
             <label for="tanggal_kembali">Tanggal Kembali</label>
             <input type="date" class="form-control" id="tanggal_kembali" name="tanggal_kembali">
           </div>
-      </form>                    
-      </div>
-    </div>  
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
+</div>
 </div>

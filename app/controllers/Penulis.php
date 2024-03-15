@@ -7,9 +7,9 @@ class Penulis extends Controller
         $data['judul'] = 'Daftar Penulis - Gubuk Baca';
         $data['penulis'] = $this->model('Penulis_model')->getAllPenulis();
 
-        $this->views('templates/header', $data);
-        $this->views('penulis/index', $data);
-        $this->views('templates/footer', $data);
+        $this->view('templates/header', $data);
+        $this->view('penulis/index', $data);
+        $this->view('templates/footer', $data);
     }
 
     public function detail($id_penulis)
@@ -17,7 +17,7 @@ class Penulis extends Controller
         $data['judul'] = 'Detail Penulis - Gubuk Baca';
         $data['penulis'] = $this->model('Penulis_model')->getPenulisById($id_penulis);
 
-        $this->views('penulis/detail', $data);
+        $this->view('penulis/detail', $data);
     }
 
     public function add()
@@ -41,9 +41,9 @@ class Penulis extends Controller
         $data['judul'] = 'Edit Penulis - Gubuk Baca';
         $data['penulis'] = $this->model('Penulis_model')->getPenulisById($id_penulis);
 
-        $this->views('templates/header', $data);
-        $this->views('templates/footer', $data);
-        $this->views('penulis/edit', $data);
+        $this->view('templates/header', $data);
+        $this->view('templates/footer', $data);
+        $this->view('penulis/edit', $data);
     }
 
     public function update()

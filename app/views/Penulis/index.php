@@ -29,19 +29,19 @@
             </tr>
           </thead>
           <tbody>
-            <?php foreach ($data['buku'] as $buku) : ?>
+            <?php foreach ($data['penulis'] as $penulis) : ?>
               <tr>
                 <td><?= $penulis['id_penulis']; ?></td>
                 <td><?= $penulis['nama_penulis']; ?></td>
                 <td><?= $penulis['kewarganegaraan']; ?></td>
                 <td>
-                  <a href="<?= BASEURL; ?>/penulis/edit/<?= $buku['id_penulis']; ?>" class="btn btn-primary btn-icon-split">
+                  <a href="<?= BASEURL; ?>/penulis/edit/<?= $penulis['id_penulis']; ?>" class="btn btn-primary btn-icon-split">
                     <span class="icon text-white-50">
                       <i class="fas fa-edit"></i>
                     </span>
                     <span class="text">Edit</span>
                   </a>
-                  <a href="<?= BASEURL; ?>/penulis/delete?id_penulis=<?= $buku['id_penulis']; ?>" class="btn btn-danger btn-icon-split">
+                  <a href="<?= BASEURL; ?>/penulis/delete?id_penulis=<?= $penulis['id_penulis']; ?>" class="btn btn-danger btn-icon-split">
                     <span class="icon text-white-50">
                       <i class="fas fa-trash"></i>
                     </span>

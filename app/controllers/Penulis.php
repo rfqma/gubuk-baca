@@ -42,8 +42,8 @@ class Penulis extends Controller
         $data['penulis'] = $this->model('Penulis_model')->getPenulisById($id_penulis);
 
         $this->view('templates/header', $data);
-        $this->view('templates/footer', $data);
         $this->view('penulis/edit', $data);
+        $this->view('templates/footer', $data);
     }
 
     public function update()
@@ -65,7 +65,7 @@ class Penulis extends Controller
 
     public function delete()
     {
-        $currentUrl = $_SERVER['SERVER_URI'];
+        $currentUrl = $_SERVER['REQUEST_URI'];
 
         $urlParts = parse_url($currentUrl);
         parse_str($urlParts['query'], $queryParams);

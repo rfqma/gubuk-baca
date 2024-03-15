@@ -1,4 +1,5 @@
 -- phpMyAdmin SQL Dump
+<<<<<<< HEAD
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
@@ -6,6 +7,15 @@
 -- Waktu pembuatan: 15 Mar 2024 pada 09.11
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 8.2.0
+=======
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Mar 15, 2024 at 02:20 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
+>>>>>>> e51915259f3ca4dbcb863b6894aea19d1a4bfd21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,6 +52,7 @@ CREATE TABLE `buku` (
 --
 
 INSERT INTO `buku` (`id_buku`, `judul_buku`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah_tersedia`) VALUES
+<<<<<<< HEAD
 (19, 'judul buku 3 edit 22', 2, 1, 1, 2023, 321),
 (20, 'judul buku 4', 2, 1, 1, 2024, 11),
 (21, 'MANTRA hujan turun lagi', 1, 1, 1, 3134, 2131),
@@ -49,6 +60,9 @@ INSERT INTO `buku` (`id_buku`, `judul_buku`, `id_kategori`, `id_penulis`, `id_pe
 (23, 'Judul Buku 7', 1, 1, 1, 2024, 20),
 (24, 'Judul Buku 8', 2, 1, 1, 2021, 5),
 (25, 'Judul Buku 9', 1, 1, 1, 2020, 30);
+=======
+(20, 'judul buku 4', 2, 2, 1, 2024, 11);
+>>>>>>> e51915259f3ca4dbcb863b6894aea19d1a4bfd21
 
 -- --------------------------------------------------------
 
@@ -67,6 +81,7 @@ CREATE TABLE `kategori` (
 --
 
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `deskripsi`) VALUES
+<<<<<<< HEAD
 (1, 'test nama kategori', 'test deskripsi kategori'),
 (2, 'kategori 2', 'deskripsi kategori 2'),
 (3, 'kategori 3', 'deskripsi kategori 3'),
@@ -74,6 +89,10 @@ INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `deskripsi`) VALUES
 (5, 'kategori 5', 'deskripsi kategori 5'),
 (6, 'kategori 6', 'deskripsi kategori 6'),
 (7, 'kategori 7', 'deskripsi kategori 7');
+=======
+(1, 'test nama kategori edit', 'test deskripsi kategori edit'),
+(2, 'kategori 2', 'deskripsi kategori 2');
+>>>>>>> e51915259f3ca4dbcb863b6894aea19d1a4bfd21
 
 -- --------------------------------------------------------
 
@@ -94,6 +113,7 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`id_mahasiswa`, `nama_mahasiswa`, `email`, `alamat`, `nomor_telepon`) VALUES
+<<<<<<< HEAD
 (1, 'test nama mahasiswa', 'testemailmahasiswa@email.com', 'test alamat mahasiswa', '087777777'),
 (2, 'agung', 'se@gmail.com', 'askjgalsa', '08435284'),
 (3, 'Nama Mahasiswa 3', 'mahasiswa3@example.com', 'Alamat Mahasiswa 3', '087654321098'),
@@ -101,6 +121,9 @@ INSERT INTO `mahasiswa` (`id_mahasiswa`, `nama_mahasiswa`, `email`, `alamat`, `n
 (5, 'Nama Mahasiswa 5', 'mahasiswa5@example.com', 'Alamat Mahasiswa 5', '085678901234'),
 (6, 'Nama Mahasiswa 6', 'mahasiswa6@example.com', 'Alamat Mahasiswa 6', '083456789012'),
 (21, 'agung', 'se@gmail.com', 'safasf', '1212412312');
+=======
+(1, 'test nama mahasiswa ubah 2', 'testemailmahasiswa@email.com', 'test alamat mahasiswa', '087777777');
+>>>>>>> e51915259f3ca4dbcb863b6894aea19d1a4bfd21
 
 -- --------------------------------------------------------
 
@@ -170,12 +193,16 @@ CREATE TABLE `penulis` (
 --
 
 INSERT INTO `penulis` (`id_penulis`, `nama_penulis`, `kewarganegaraan`) VALUES
+<<<<<<< HEAD
 (1, 'test nama penulis', 'indo'),
 (2, 'Nama Penulis 2', 'Indonesia'),
 (3, 'Nama Penulis 3', 'Inggris'),
 (4, 'Nama Penulis 4', 'Amerika Serikat'),
 (5, 'Nama Penulis 5', 'Jepang'),
 (6, 'Nama Penulis 6', 'Korea Selatan');
+=======
+(2, 'penulis 2', 'indonnn');
+>>>>>>> e51915259f3ca4dbcb863b6894aea19d1a4bfd21
 
 --
 -- Indexes for dumped tables
@@ -236,13 +263,21 @@ ALTER TABLE `buku`
 -- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
+<<<<<<< HEAD
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+=======
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+>>>>>>> e51915259f3ca4dbcb863b6894aea19d1a4bfd21
 
 --
 -- AUTO_INCREMENT untuk tabel `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
+<<<<<<< HEAD
   MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+=======
+  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+>>>>>>> e51915259f3ca4dbcb863b6894aea19d1a4bfd21
 
 --
 -- AUTO_INCREMENT untuk tabel `peminjaman`
@@ -260,7 +295,11 @@ ALTER TABLE `penerbit`
 -- AUTO_INCREMENT untuk tabel `penulis`
 --
 ALTER TABLE `penulis`
+<<<<<<< HEAD
   MODIFY `id_penulis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+=======
+  MODIFY `id_penulis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+>>>>>>> e51915259f3ca4dbcb863b6894aea19d1a4bfd21
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

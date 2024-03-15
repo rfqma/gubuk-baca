@@ -61,6 +61,12 @@
           <span>Daftar Buku</span></a>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link" href="<?= BASEURL; ?>/penulis">
+          <i class="fas fa-fw fa-user"></i>
+          <span>Daftar Penulis</span></a>
+      </li>
+
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -115,4 +121,5 @@
           </ul>
 
         </nav>
+</body>
         <!-- End of Topbar -->

@@ -23,13 +23,13 @@ class Peminjaman_model
     return $this->db->resultSingle();
   }
 
-  public function addPeminjaman($id_buku, $id_mahasiswa, $tanggal_pinjam, $tanggal_kembali)
+  public function addPeminjaman($id_mahasiswa, $id_buku, $tanggal_pinjam, $tanggal_kembali)
   {
-    $query = "INSERT INTO " . $this->table . " VALUES ('', :id_buku, :id_mahasiswa, :tanggal_pinjam, :tanggal_kembali)";
+    $query = "INSERT INTO " . $this->table . " VALUES ('', :id_mahasiswa, :id_buku,  :tanggal_pinjam, :tanggal_kembali)";
 
     $this->db->query($query);
-    $this->db->bind('id_buku', $id_buku);
     $this->db->bind('id_mahasiswa', $id_mahasiswa);
+    $this->db->bind('id_buku', $id_buku);
     $this->db->bind('tanggal_pinjam', $tanggal_pinjam);
     $this->db->bind('tanggal_kembali', $tanggal_kembali);
 
@@ -37,9 +37,9 @@ class Peminjaman_model
     return $this->db->rowCount();
   }
 
-  public function updatePeminjaman($id_peminjaman, $id_buku, $id_mahasiswa, $tanggal_pinjam, $tanggal_kembali)
+  public function updatePeminjaman($id_peminjaman,  $id_mahasiswa,$id_buku, $tanggal_pinjam, $tanggal_kembali)
   {
-    $query = "UPDATE " . $this->table . " SET id_buku=:id_buku, id_mahasiswa=:id_mahasiswa, tanggal_pinjam=:tanggal_pinjam, tanggal_kembali=:tanggal_kembali WHERE id_peminjaman=:id_peminjaman";
+    $query = "UPDATE " . $this->table . " SET  id_mahasiswa=:id_mahasiswa,id_buku=:id_buku, tanggal_pinjam=:tanggal_pinjam, tanggal_kembali=:tanggal_kembali WHERE id_peminjaman=:id_peminjaman";
 
     $this->db->query($query);
     $this->db->bind('id_peminjaman', $id_peminjaman);

@@ -53,6 +53,11 @@
           <i class="fas fa-fw fa-table"></i>
           <span>Daftar Buku</span></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?= BASEURL; ?>/penerbit">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Daftar Penerbit</span></a>
+      </li>
 
       <li class="nav-item">
         <a class="nav-link" href="<?= BASEURL; ?>/penulis">

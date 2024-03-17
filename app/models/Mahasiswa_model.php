@@ -23,6 +23,13 @@ class Mahasiswa_model
     return $this->db->resultSingle();
   }
 
+  public function getMahasiswaNameById($id_mahasiswa)
+  {
+    $this->db->query('SELECT nama_mahasiswa FROM ' . $this->table . ' WHERE id_mahasiswa=:id_mahasiswa');
+    $this->db->bind('id_mahasiswa', $id_mahasiswa);
+    return $this->db->resultSingle()['nama_mahasiswa'];
+  }
+
   public function addMahasiswa($nama_mahasiswa, $email, $alamat, $nomor_telepon)
   {
     $query = "INSERT INTO " . $this->table . " VALUES ('', :nama_mahasiswa, :email, :alamat, :nomor_telepon)";

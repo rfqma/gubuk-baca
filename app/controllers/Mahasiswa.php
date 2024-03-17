@@ -1,29 +1,31 @@
-<?php 
+<?php
 
-class Mahasiswa extends Controller {
-    public function index() {
+class Mahasiswa extends Controller
+{
+  public function index()
+  {
     $data['judul'] = 'Daftar Mahasiswa - Gubuk Baca';
     $data['mahasiswa'] = $this->model('Mahasiswa_model')->getAllMahasiswa();
-    
+
 
     $this->view('templates/header', $data);
     $this->view('mahasiswa/index', $data);
     $this->view('templates/footer', $data);
-    }
-    public function add()
+  }
+  public function add()
   {
     $nama_mahasiswa = $_POST['nama_mahasiswa'];
     $email = $_POST['email'];
     $alamat = $_POST['alamat'];
     $nomor_telepon = $_POST['nomor_telepon'];
-    
+
 
     if ($this->model('Mahasiswa_model')->addMahasiswa($nama_mahasiswa, $email, $alamat, $nomor_telepon,) > 0) {
-      echo "<script type='text/javascript'> alert('Data berhasil ditambahkan!'); </script>";
+
       header('Location: ' . BASEURL . '/mahasiswa');
       exit;
     } else {
-      echo "<script type='text/javascript'> alert('Data gagal ditambahkan!'); </script>";
+
       header('Location: ' . BASEURL . '/mahasiswa');
       exit;
     }
@@ -45,18 +47,18 @@ class Mahasiswa extends Controller {
     $email = $_POST['email'];
     $alamat = $_POST['alamat'];
     $nomor_telepon = $_POST['nomor_telepon'];
-    
+
     if ($this->model('Mahasiswa_model')->updateMahasiswa($id_mahasiswa, $nama_mahasiswa, $email, $alamat, $nomor_telepon) > 0) {
-      echo "<script type='text/javascript'> alert('Data berhasil diubah!'); </script>";
+
       header('Location: ' . BASEURL . '/mahasiswa');
       exit;
     } else {
-      echo "<script type='text/javascript'> alert('Data gagal diubah!'); </script>";
+
       header('Location: ' . BASEURL . '/mahasiswa');
       exit;
     }
-   }
-   public function delete()
+  }
+  public function delete()
   {
     // mengambil url
     $currentUrl = $_SERVER['REQUEST_URI'];
@@ -73,12 +75,11 @@ class Mahasiswa extends Controller {
       // cek apakah id_mahasiswa adalah integer
       if (ctype_digit($id_mahasiswa)) {
         // panggil method model untuk hapus data
-        if ($this->model('Mahasiswa_model')->hapusMahasiswa($id_mahasiswa) > 0) {
-          echo "<script type='text/javascript'> alert('Data berhasil dihapus!'); </script>";
+        if ($this->model('Mahasiswa_model')->hapusMahasiswa($id_mahasiswa) > 0) {;
           header('Location: ' . BASEURL . '/mahasiswa');
           exit;
         } else {
-          echo "<script type='text/javascript'> alert('Data gagal dihapus!'); </script>";
+
           header('Location: ' . BASEURL . '/mahasiswa');
           exit;
         }
@@ -91,7 +92,4 @@ class Mahasiswa extends Controller {
       exit;
     }
   }
-
 }
-
-

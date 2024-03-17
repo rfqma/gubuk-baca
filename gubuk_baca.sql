@@ -1,11 +1,21 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+<<<<<<< HEAD
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2024 at 07:31 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.28
+-- Waktu pembuatan: 15 Mar 2024 pada 09.11
+-- Versi server: 10.4.27-MariaDB
+-- Versi PHP: 8.2.0
+=======
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Mar 15, 2024 at 02:20 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
+>>>>>>> e51915259f3ca4dbcb863b6894aea19d1a4bfd21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +34,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `buku`
+-- Struktur dari tabel `buku`
 --
 
 CREATE TABLE `buku` (
@@ -38,18 +48,26 @@ CREATE TABLE `buku` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `buku`
+-- Dumping data untuk tabel `buku`
 --
 
 INSERT INTO `buku` (`id_buku`, `judul_buku`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah_tersedia`) VALUES
+<<<<<<< HEAD
 (19, 'judul buku 3 edit 22', 2, 1, 1, 2023, 321),
-(20, 'judul buku 4', 2, 1, 1, 2024, 11);
-
+(20, 'judul buku 4', 2, 1, 1, 2024, 11),
+(21, 'MANTRA hujan turun lagi', 1, 1, 1, 3134, 2131),
+(22, 'Judul Buku 6', 2, 1, 1, 2023, 15),
+(23, 'Judul Buku 7', 1, 1, 1, 2024, 20),
+(24, 'Judul Buku 8', 2, 1, 1, 2021, 5),
+(25, 'Judul Buku 9', 1, 1, 1, 2020, 30);
+=======
+(20, 'judul buku 4', 2, 2, 1, 2024, 11);
+>>>>>>> e51915259f3ca4dbcb863b6894aea19d1a4bfd21
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori`
+-- Struktur dari tabel `kategori`
 --
 
 CREATE TABLE `kategori` (
@@ -59,17 +77,27 @@ CREATE TABLE `kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `kategori`
+-- Dumping data untuk tabel `kategori`
 --
 
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `deskripsi`) VALUES
+<<<<<<< HEAD
 (1, 'test nama kategori', 'test deskripsi kategori'),
+(2, 'kategori 2', 'deskripsi kategori 2'),
+(3, 'kategori 3', 'deskripsi kategori 3'),
+(4, 'kategori 4', 'deskripsi kategori 4'),
+(5, 'kategori 5', 'deskripsi kategori 5'),
+(6, 'kategori 6', 'deskripsi kategori 6'),
+(7, 'kategori 7', 'deskripsi kategori 7');
+=======
+(1, 'test nama kategori edit', 'test deskripsi kategori edit'),
 (2, 'kategori 2', 'deskripsi kategori 2');
+>>>>>>> e51915259f3ca4dbcb863b6894aea19d1a4bfd21
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mahasiswa`
+-- Struktur dari tabel `mahasiswa`
 --
 
 CREATE TABLE `mahasiswa` (
@@ -81,16 +109,26 @@ CREATE TABLE `mahasiswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `mahasiswa`
+-- Dumping data untuk tabel `mahasiswa`
 --
 
 INSERT INTO `mahasiswa` (`id_mahasiswa`, `nama_mahasiswa`, `email`, `alamat`, `nomor_telepon`) VALUES
-(1, 'test nama mahasiswa', 'testemailmahasiswa@email.com', 'test alamat mahasiswa', '087777777');
+<<<<<<< HEAD
+(1, 'test nama mahasiswa', 'testemailmahasiswa@email.com', 'test alamat mahasiswa', '087777777'),
+(2, 'agung', 'se@gmail.com', 'askjgalsa', '08435284'),
+(3, 'Nama Mahasiswa 3', 'mahasiswa3@example.com', 'Alamat Mahasiswa 3', '087654321098'),
+(4, 'Nama Mahasiswa 4', 'mahasiswa4@example.com', 'Alamat Mahasiswa 4', '089012345678'),
+(5, 'Nama Mahasiswa 5', 'mahasiswa5@example.com', 'Alamat Mahasiswa 5', '085678901234'),
+(6, 'Nama Mahasiswa 6', 'mahasiswa6@example.com', 'Alamat Mahasiswa 6', '083456789012'),
+(21, 'agung', 'se@gmail.com', 'safasf', '1212412312');
+=======
+(1, 'test nama mahasiswa ubah 2', 'testemailmahasiswa@email.com', 'test alamat mahasiswa', '087777777');
+>>>>>>> e51915259f3ca4dbcb863b6894aea19d1a4bfd21
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `peminjaman`
+-- Struktur dari tabel `peminjaman`
 --
 
 CREATE TABLE `peminjaman` (
@@ -101,10 +139,23 @@ CREATE TABLE `peminjaman` (
   `tanggal_kembali` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data untuk tabel `peminjaman`
+--
+
+INSERT INTO `peminjaman` (`id_peminjaman`, `id_mahasiswa`, `id_buku`, `tanggal_pinjam`, `tanggal_kembali`) VALUES
+(1, 1, 21, '2024-03-12', '2024-03-28'),
+(2, 3, 22, '2024-03-11', '2024-03-21'),
+(3, 4, 23, '2024-03-12', '2024-03-22'),
+(4, 5, 24, '2024-03-13', '2024-03-23'),
+(5, 6, 25, '2024-03-14', '2024-03-24'),
+(7, 1, 19, '2024-03-07', '2024-04-01'),
+(8, 21, 23, '2024-03-04', '2024-04-06');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `penerbit`
+-- Struktur dari tabel `penerbit`
 --
 
 CREATE TABLE `penerbit` (
@@ -114,16 +165,21 @@ CREATE TABLE `penerbit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `penerbit`
+-- Dumping data untuk tabel `penerbit`
 --
 
 INSERT INTO `penerbit` (`id_penerbit`, `nama_penerbit`, `negara_asal`) VALUES
-(1, 'test nama penerbit', 'indo');
+(1, 'test nama penerbit', 'indo'),
+(2, 'Nama Penerbit 2', 'Indonesia'),
+(3, 'Nama Penerbit 3', 'Inggris'),
+(4, 'Nama Penerbit 4', 'Amerika Serikat'),
+(5, 'Nama Penerbit 5', 'Jepang'),
+(6, 'Nama Penerbit 6', 'Korea Selatan');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `penulis`
+-- Struktur dari tabel `penulis`
 --
 
 CREATE TABLE `penulis` (
@@ -133,18 +189,27 @@ CREATE TABLE `penulis` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `penulis`
+-- Dumping data untuk tabel `penulis`
 --
 
 INSERT INTO `penulis` (`id_penulis`, `nama_penulis`, `kewarganegaraan`) VALUES
-(1, 'test nama penulis', 'indo');
+<<<<<<< HEAD
+(1, 'test nama penulis', 'indo'),
+(2, 'Nama Penulis 2', 'Indonesia'),
+(3, 'Nama Penulis 3', 'Inggris'),
+(4, 'Nama Penulis 4', 'Amerika Serikat'),
+(5, 'Nama Penulis 5', 'Jepang'),
+(6, 'Nama Penulis 6', 'Korea Selatan');
+=======
+(2, 'penulis 2', 'indonnn');
+>>>>>>> e51915259f3ca4dbcb863b6894aea19d1a4bfd21
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `buku`
+-- Indeks untuk tabel `buku`
 --
 ALTER TABLE `buku`
   ADD PRIMARY KEY (`id_buku`),
@@ -153,19 +218,19 @@ ALTER TABLE `buku`
   ADD KEY `id_penerbit_2` (`id_penerbit`);
 
 --
--- Indexes for table `kategori`
+-- Indeks untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indexes for table `mahasiswa`
+-- Indeks untuk tabel `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
   ADD PRIMARY KEY (`id_mahasiswa`);
 
 --
--- Indexes for table `peminjaman`
+-- Indeks untuk tabel `peminjaman`
 --
 ALTER TABLE `peminjaman`
   ADD PRIMARY KEY (`id_peminjaman`),
@@ -173,63 +238,75 @@ ALTER TABLE `peminjaman`
   ADD KEY `id_buku` (`id_buku`);
 
 --
--- Indexes for table `penerbit`
+-- Indeks untuk tabel `penerbit`
 --
 ALTER TABLE `penerbit`
   ADD PRIMARY KEY (`id_penerbit`);
 
 --
--- Indexes for table `penulis`
+-- Indeks untuk tabel `penulis`
 --
 ALTER TABLE `penulis`
   ADD PRIMARY KEY (`id_penulis`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `buku`
+-- AUTO_INCREMENT untuk tabel `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT for table `kategori`
+-- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+<<<<<<< HEAD
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+=======
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+>>>>>>> e51915259f3ca4dbcb863b6894aea19d1a4bfd21
 
 --
--- AUTO_INCREMENT for table `mahasiswa`
+-- AUTO_INCREMENT untuk tabel `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+<<<<<<< HEAD
+  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+=======
+  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+>>>>>>> e51915259f3ca4dbcb863b6894aea19d1a4bfd21
 
 --
--- AUTO_INCREMENT for table `peminjaman`
+-- AUTO_INCREMENT untuk tabel `peminjaman`
 --
 ALTER TABLE `peminjaman`
-  MODIFY `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `penerbit`
+-- AUTO_INCREMENT untuk tabel `penerbit`
 --
 ALTER TABLE `penerbit`
-  MODIFY `id_penerbit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_penerbit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `penulis`
+-- AUTO_INCREMENT untuk tabel `penulis`
 --
 ALTER TABLE `penulis`
-  MODIFY `id_penulis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+<<<<<<< HEAD
+  MODIFY `id_penulis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+=======
+  MODIFY `id_penulis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+>>>>>>> e51915259f3ca4dbcb863b6894aea19d1a4bfd21
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `buku`
+-- Ketidakleluasaan untuk tabel `buku`
 --
 ALTER TABLE `buku`
   ADD CONSTRAINT `buku_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id_kategori`) ON DELETE SET NULL ON UPDATE CASCADE,
@@ -237,7 +314,7 @@ ALTER TABLE `buku`
   ADD CONSTRAINT `buku_ibfk_3` FOREIGN KEY (`id_penerbit`) REFERENCES `penerbit` (`id_penerbit`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Constraints for table `peminjaman`
+-- Ketidakleluasaan untuk tabel `peminjaman`
 --
 ALTER TABLE `peminjaman`
   ADD CONSTRAINT `peminjaman_ibfk_1` FOREIGN KEY (`id_mahasiswa`) REFERENCES `mahasiswa` (`id_mahasiswa`) ON DELETE NO ACTION ON UPDATE CASCADE,

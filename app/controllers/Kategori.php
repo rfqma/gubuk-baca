@@ -18,11 +18,9 @@ class Kategori extends Controller
     $deskripsi = $_POST['deskripsi'];
 
     if ($this->model('Kategori_model')->addKategori($nama_kategori, $deskripsi) > 0) {
-      echo "<script type='text/javascript'> alert('Data berhasil ditambahkan!'); </script>";
       header('Location: ' . BASEURL . '/kategori');
       exit;
     } else {
-      echo "<script type='text/javascript'> alert('Data gagal ditambahkan!'); </script>";
       header('Location: ' . BASEURL . '/kategori');
       exit;
     }
@@ -45,11 +43,9 @@ class Kategori extends Controller
     $deskripsi = $_POST['deskripsi'];
 
     if ($this->model('Kategori_model')->updateKategori($id_kategori, $nama_kategori, $deskripsi) > 0) {
-      echo "<script type='text/javascript'> alert('Data berhasil diubah!'); </script>";
       header('Location: ' . BASEURL . '/kategori');
       exit;
     } else {
-      echo "<script type='text/javascript'> alert('Data gagal diubah!'); </script>";
       header('Location: ' . BASEURL . '/kategori');
       exit;
     }
@@ -73,11 +69,9 @@ class Kategori extends Controller
       if (ctype_digit($id_kategori)) {
         // panggil method model untuk hapus data
         if ($this->model('Kategori_model')->hapusKategori($id_kategori) > 0) {
-          echo "<script type='text/javascript'> alert('Data berhasil dihapus!'); </script>";
           header('Location: ' . BASEURL . '/kategori');
           exit;
         } else {
-          echo "<script type='text/javascript'> alert('Data gagal dihapus!'); </script>";
           header('Location: ' . BASEURL . '/kategori');
           exit;
         }

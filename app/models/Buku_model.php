@@ -22,6 +22,13 @@ class Buku_model
     $this->db->bind('id_buku', $id_buku);
     return $this->db->resultSingle();
   }
+  public function getBukuNameById($id_buku)
+  {
+    $this->db->query('SELECT judul_buku FROM ' . $this->table . ' WHERE id_buku=:id_buku');
+    $this->db->bind('id_buku', $id_buku);
+    return $this->db->resultSingle()['judul_buku'];
+  }
+
 
   public function addBuku($judul_buku, $id_kategori, $id_penulis, $id_penerbit, $tahun_terbit, $jumlah_tersedia)
   {

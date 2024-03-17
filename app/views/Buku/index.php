@@ -86,7 +86,7 @@
                 <?php foreach ($data['kategori']->getAllKategori() as $kategori) : ?>
                   <option value="<?php echo $kategori['id_kategori']; ?>"><?php echo $kategori['nama_kategori']; ?></option>
                 <?php endforeach; ?>
-              </select>
+                </select>
             </div>
             <div class="form-group">
               <label for="penulis">Nama Penulis</label>

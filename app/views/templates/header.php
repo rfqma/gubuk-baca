@@ -47,13 +47,6 @@
         Menu
       </div>
 
-      <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="<?= BASEURL; ?>/peminjaman">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Daftar Peminjaman</span></a>
-      </li>
-
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="<?= BASEURL; ?>/buku">
@@ -64,6 +57,31 @@
         <a class="nav-link" href="<?= BASEURL; ?>/penerbit">
           <i class="fas fa-fw fa-table"></i>
           <span>Daftar Penerbit</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="<?= BASEURL; ?>/penulis">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Daftar Penulis</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="<?= BASEURL; ?>/mahasiswa">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <span>Daftar Mahasiswa</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="<?= BASEURL; ?>/kategori">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <span>Daftar Kategori</span></a>
+      </li>
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="<?= BASEURL; ?>/peminjaman">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Daftar Peminjaman</span></a>
       </li>
 
       <!-- Divider -->
@@ -120,4 +138,5 @@
           </ul>
 
         </nav>
-        <!-- End of Topbar -->
+</body>
+<!-- End of Topbar -->

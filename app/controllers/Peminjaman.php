@@ -4,77 +4,68 @@ class Peminjaman extends Controller
 {
   public function index()
   {
-      $data['judul'] = 'Daftar Peminjaman - Gubuk Baca';
-      $data['peminjaman'] = $this->model('Peminjaman_model')->getAllPeminjaman();
-      $data['buku'] = $this->model('Buku_model');
-      $data['mahasiswa'] = $this->model('Mahasiswa_model');
-      
-      $this->view('templates/header', $data);
-      $this->view('peminjaman/index', $data);
-      $this->view('templates/footer', $data);
+    $data['judul'] = 'Daftar Peminjaman - Gubuk Baca';
+    $data['peminjaman'] = $this->model('Peminjaman_model')->getAllPeminjaman();
+    $data['buku'] = $this->model('Buku_model');
+    $data['mahasiswa'] = $this->model('Mahasiswa_model');
+
+    $this->view('templates/header', $data);
+    $this->view('peminjaman/index', $data);
+    $this->view('templates/footer', $data);
   }
 
+  public function add()
+  {
+    // Ambil data dari form peminjaman
+    $id_mahasiswa = $_POST['id_mahasiswa'];
+    $id_buku = $_POST['id_buku'];
+    $tanggal_pinjam = $_POST['tanggal_pinjam'];
+    $tanggal_kembali = $_POST['tanggal_kembali'];
 
-    public function detail($id_peminjaman)
-    {
-        $data['judul'] = 'Detail Peminjaman - Gubuk Baca';
-        $data['peminjaman'] = $this->model('Peminjaman_model')->getPeminjamanById($id_peminjaman);
+    if ($this->model('Peminjaman_model')->addPeminjaman($id_mahasiswa, $id_buku, $tanggal_pinjam, $tanggal_kembali) > 0) {
 
-        $this->view('peminjaman/detail', $data);
+      header('Location: ' . BASEURL . '/peminjaman');
+      exit;
+    } else {
+
+      header('Location: ' . BASEURL . '/peminjaman');
+      exit;
     }
+  }
 
-    public function add()
-    {
-        // Ambil data dari form peminjaman
-        $id_mahasiswa = $_POST['id_mahasiswa'];
-        $id_buku = $_POST['id_buku'];
-        $tanggal_pinjam = $_POST['tanggal_pinjam'];
-        $tanggal_kembali = $_POST['tanggal_kembali'];
+  public function edit($id_peminjaman)
+  {
+    $data['judul'] = 'Daftar Peminjaman - Gubuk Baca';
+    $data['peminjaman'] = $this->model('Peminjaman_model')->getPeminjamanById($id_peminjaman);
+    $data['buku'] = $this->model('Buku_model');
+    $data['mahasiswa'] = $this->model('Mahasiswa_model');
 
-        if ($this->model('Peminjaman_model')->addPeminjaman($id_mahasiswa, $id_buku, $tanggal_pinjam, $tanggal_kembali) > 0) {
-            echo "<script type='text/javascript'> alert('Data berhasil ditambahkan!'); </script>";
-            header('Location: ' . BASEURL . '/peminjaman');
-            exit;
-        } else {
-            echo "<script type='text/javascript'> alert('Data gagal ditambahkan!'); </script>";
-            header('Location: ' . BASEURL . '/peminjaman');
-            exit;
-        }
+    $this->view('templates/header', $data);
+    $this->view('peminjaman/edit', $data);
+    $this->view('templates/footer', $data);
+  }
+
+  public function update()
+  {
+    // Ambil data dari form update peminjaman
+    $id_peminjaman = $_POST['id_peminjaman'];
+    $id_mahasiswa = $_POST['id_mahasiswa'];
+    $id_buku = $_POST['id_buku'];
+    $tanggal_pinjam = $_POST['tanggal_pinjam'];
+    $tanggal_kembali = $_POST['tanggal_kembali'];
+
+    if ($this->model('Peminjaman_model')->updatePeminjaman($id_peminjaman, $id_mahasiswa, $id_buku, $tanggal_pinjam, $tanggal_kembali) > 0) {
+
+      header('Location: ' . BASEURL . '/peminjaman');
+      exit;
+    } else {
+
+      header('Location: ' . BASEURL . '/peminjaman');
+      exit;
     }
+  }
 
-        public function edit($id_peminjaman)
-    {
-        $data['judul'] = 'Daftar Peminjaman - Gubuk Baca';
-        $data['peminjaman'] = $this->model('Peminjaman_model')->getPeminjamanById($id_peminjaman);
-        $data['buku'] = $this->model('Buku_model');
-        $data['mahasiswa'] = $this->model('Mahasiswa_model');
-        
-        $this->view('templates/header', $data);
-        $this->view('peminjaman/edit', $data);
-        $this->view('templates/footer', $data);
-    }
-
-    public function update()
-    {
-        // Ambil data dari form update peminjaman
-        $id_peminjaman = $_POST['id_peminjaman'];
-        $id_mahasiswa = $_POST['id_mahasiswa'];
-        $id_buku = $_POST['id_buku'];
-        $tanggal_pinjam = $_POST['tanggal_pinjam'];
-        $tanggal_kembali = $_POST['tanggal_kembali'];
-
-        if ($this->model('Peminjaman_model')->updatePeminjaman($id_peminjaman, $id_mahasiswa, $id_buku, $tanggal_pinjam, $tanggal_kembali) > 0) {
-            echo "<script type='text/javascript'> alert('Data berhasil diubah!'); </script>";
-            header('Location: ' . BASEURL . '/peminjaman');
-            exit;
-        } else {
-            echo "<script type='text/javascript'> alert('Data gagal diubah!'); </script>";
-            header('Location: ' . BASEURL . '/peminjaman');
-            exit;
-        }
-    }
-
-    public function delete()
+  public function delete()
   {
     // mengambil url
     $currentUrl = $_SERVER['REQUEST_URI'];
@@ -91,12 +82,11 @@ class Peminjaman extends Controller
       // cek apakah id_peminjaman adalah integer
       if (ctype_digit($id_peminjaman)) {
         // panggil method model untuk hapus data
-        if ($this->model('Peminjaman_model')->hapusPeminjaman($id_peminjaman) > 0) {
-          echo "<script type='text/javascript'> alert('Data berhasil dihapus!'); </script>";
+        if ($this->model('Peminjaman_model')->hapusPeminjaman($id_peminjaman) > 0) {;
           header('Location: ' . BASEURL . '/peminjaman');
           exit;
         } else {
-          echo "<script type='text/javascript'> alert('Data gagal dihapus!'); </script>";
+
           header('Location: ' . BASEURL . '/peminjaman');
           exit;
         }
@@ -109,6 +99,4 @@ class Peminjaman extends Controller
       exit;
     }
   }
-
-    
 }
